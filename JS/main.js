@@ -34,7 +34,7 @@ let allInfo = [];
 
 async function showWeather(currentCity = "cairo") {
   let weather = await fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=c6a549e1de0a4fee8fe191912230609&q=${currentCity}&days=7`
+    `https://api.weatherapi.com/v1/forecast.json?key=c6a549e1de0a4fee8fe191912230609&q=${currentCity}&days=7`
   );
   let allInfo = await weather.json();
   displayCurrent(allInfo);
@@ -92,70 +92,3 @@ function displayNext(allInfo) {
   }
 }
 
-/* other */
-
-// function showWeather(val = "cairo") {
-//   let weather = new XMLHttpRequest();
-//   weather.open(
-//     "GET",
-//     `http://api.weatherapi.com/v1/forecast.json?key=c6a549e1de0a4fee8fe191912230609&q=${val}&days=7`
-//   );
-//   weather.send();
-
-//   weather.addEventListener("loadend", function () {
-//     if (weather.status == 200) {
-//       // console.log(w.response);
-//       allInfo = JSON.parse(weather.response);
-//       console.log(allInfo.forecast.forecastday[1].day.maxtemp_c);
-
-//       displayWeather();
-//       firstTwoCards();
-
-//       // console.log(allInfo.forecast);
-//     }
-//   });
-// }
-// showWeather();
-
-// let dayTwo = document.getElementById("dayTwo");
-
-// let iconDayTwo = document.getElementById("iconDayTwo");
-
-// let maxtemp_cDaytwo = document.getElementById("maxtemp_cDaytwo");
-
-// let mintemp_cDaytwo = document.getElementById("mintemp_cDaytwo");
-
-// let textDaytwo = document.getElementById("textDaytwo");
-
-// function displayDayTwo() {
-//   dayTwo.innerHTML = days[new Date("2023-09-08").getDay() + 1];
-
-//   const iconUrltwo = `https:${allInfo.forecast.forecastday[1].day.condition.icon}`;
-//   iconDayTwo.innerHTML = `<img src="${iconUrltwo}" alt="Weather Icon" />`;
-//   maxtemp_cDaytwo.innerHTML = allInfo.forecast.forecastday[1].day.maxtemp_c;
-//   mintemp_cDaytwo.innerHTML = allInfo.forecast.forecastday[1].day.mintemp_c;
-//   textDaytwo.innerHTML = allInfo.forecast.forecastday[1].day.condition.text;
-// }
-
-/* Day three */
-
-// let dayThree = document.getElementById("dayThree");
-
-// let iconDayThree = document.getElementById("iconDayThree");
-
-// let maxtemp_cDayThree = document.getElementById("maxtemp_cDayThree");
-
-// let mintemp_cDayThree = document.getElementById("mintemp_cDayThree");
-
-// let textDayThree = document.getElementById("textDayThree");
-
-// function displayDayThree() {
-//   dayThree.innerHTML =
-//     days[new Date(allInfo.forecast.forecastday[2].date).getDay() + 1];
-
-//   const iconUrlthree = `https:${allInfo.forecast.forecastday[2].day.condition.icon}`;
-//   iconDayThree.innerHTML = `<img src="${iconUrlthree}" alt="Weather Icon" />`;
-//   maxtemp_cDayThree.innerHTML = allInfo.forecast.forecastday[2].day.maxtemp_c;
-//   mintemp_cDayThree.innerHTML = allInfo.forecast.forecastday[2].day.mintemp_c;
-//   textDayThree.innerHTML = allInfo.forecast.forecastday[2].day.condition.text;
-// }
